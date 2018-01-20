@@ -112,7 +112,12 @@ export default {
           character.title = character.name
           character.show = false
           character.src = sexImg[character.sex]
-          character.description = '<p>' + character.clothing.replace(/([^>])\n/g, '$1</p><p>') + '</p>'
+          character.description = ''
+          character.description += '<h2>' + character.clothing.title + '</h2>'
+          if (character.clothing.description) {
+            character.description += '<p>' + character.clothing.description.replace(/([^>])\n/g, '$1</p><p>') + '</p>'
+          }
+          console.log(character.clothing)
           this.characters.push(character)
         }
       })
