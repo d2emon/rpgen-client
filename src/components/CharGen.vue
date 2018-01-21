@@ -58,15 +58,11 @@
                 </v-card-actions>
                 <v-slide-y-transition>
                   <v-card-text v-show="character.show">
-                    <v-card>
-                      <div v-html="character.description"></div>
-                    </v-card>
-                    <div v-for="cloth in character.clothing" v-if="cloth">
+                    <div v-html="character.description"></div>
+                    <div v-for="cloth in character.clothing.items" v-if="cloth">
                        <h2>{{ cloth.title }}</h2>
                        <div v-html="cloth.html"></div>
-                       <pre>{{ cloth.description }}</pre>
                     </div>
-                    <hr />
                   </v-card-text>
                 </v-slide-y-transition>
               </v-card>
@@ -122,15 +118,16 @@ export default {
           character.show = false
           character.src = sexImg[character.sex]
           character.description = ''
-          for (let j = 0; j < character.clothing.length; j++) {
-            let cloth = character.clothing[j]
+          if (character.clothing.description) {
+            character.description = '<p>' + character.clothing.description.replace(/([^>])\n/g, '$1</p><p>') + '</p>'
+          }
+          for (let j = 0; j < character.clothing.items.length; j++) {
+            let cloth = character.clothing.items[j]
             if (!cloth) continue
             cloth.html = ''
             if (cloth.description) {
               cloth.html += '<p>' + cloth.description.replace(/([^>])\n/g, '$1</p><p>') + '</p>'
             }
-            character.description += '<h2>' + cloth.title + '</h2>'
-            character.description += cloth.html
           }
           console.log(character.clothing)
           this.characters.push(character)
