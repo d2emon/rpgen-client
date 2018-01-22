@@ -87,6 +87,11 @@ export default {
           icon: 'face',
           title: 'Персонаж',
           to: '/character'
+        },
+        {
+          icon: 'face',
+          title: 'Alien',
+          to: '/aliens'
         }
       ],
       miniVariant: false,
