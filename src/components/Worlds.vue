@@ -71,6 +71,8 @@
 </template>
 
 <script>
+var config = require('@/../config')
+
 export default {
   name: 'charGen',
   data () {
@@ -92,7 +94,7 @@ export default {
   },
   methods: {
     loadWorlds: function (random) {
-      var api = 'http://127.0.0.1:3000/worlds'
+      var api = config.apiURL + '/worlds'
       if (random) {
         api += '?random=1&count=10'
       }
