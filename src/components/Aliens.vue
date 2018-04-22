@@ -64,7 +64,7 @@ export default {
     loadAliens: function (random) {
       var api = 'http://127.0.0.1:3000/aliens'
       if (random) {
-        api += '?random=1&count=10'
+        api += '?random=1&count=1'
       }
       this.axios.get(api).then((response) => {
         let aliens = response.data.aliens
