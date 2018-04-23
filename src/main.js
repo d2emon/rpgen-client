@@ -1,22 +1,30 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+// import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import Vuetify from 'vuetify'
+// import VueCookie from 'vue-cookie'
+
 import App from './App'
 import router from './router'
-import axios from 'axios'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-import VueAxios from 'vue-axios'
+// import store from './store'
 
-Vue.use(Vuetify)
-Vue.use(VueAxios, axios)
+// import 'vue-material-design-icons/styles.css'
+// import 'mdi/css/materialdesignicons.css'
+import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
+
+// Vue.use(Vuex)
+Vue.use(VueAxios, axios)
+Vue.use(Vuetify)
+// Vue.use(VueCookie)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  // store,
   components: { App },
   template: '<App/>'
 })
