@@ -1,21 +1,15 @@
-<template>
-  <v-app>
-    <nav-sidebar />
+<template lang="pug">
+  v-app
+    nav-sidebar
+    app-header
+    .app-body
+      v-content
+        v-container(fluid, fill-height, class="pa-0")
+          // confirm-del
+          // messages
 
-    <app-header />
-
-    <div class="app-body">
-      <main class="main">
-        <v-content>
-          <v-container fluid fill-height class="pa-0">
-            <router-view></router-view>
-          </v-container>
-        </v-content>
-      </main>
-    </div>
-
-    <app-footer />
-  </v-app>
+          router-view
+    app-footer
 </template>
 
 <script>
@@ -27,14 +21,10 @@ export default {
     AppHeader,
     AppFooter,
     NavSidebar
-  },
-  data () {
-    return {
-      fixed: false,
-      right: true,
-      rightDrawer: false
-    }
   }
 }
 </script>
 
+<style lang="scss">
+  @import './scss/_theme.scss';
+</style>

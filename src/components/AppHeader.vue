@@ -1,30 +1,25 @@
-<template>
-  <v-toolbar
+<template lang="pug">
+  v-toolbar(
     app
     fixed
     :clipped-left="clipped"
-  >
-    <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-    <v-btn icon @click.stop="miniVariant = !miniVariant">
-      <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-    </v-btn>
-    <v-btn icon @click.stop="clipped = !clipped">
-      <v-icon>web</v-icon>
-    </v-btn>
-    <v-btn icon @click.stop="fixed = !fixed">
-      <v-icon>remove</v-icon>
-    </v-btn>
-    <v-toolbar-title
+  )
+    v-toolbar-side-icon(@click.stop="drawer = !drawer")
+    v-btn(icon @click.stop="miniVariant = !miniVariant")
+      v-icon(v-html="miniVariant ? 'chevron_right' : 'chevron_left'")
+    v-btn(icon @click.stop="clipped = !clipped")
+      v-icon web
+    v-btn(icon @click.stop="fixed = !fixed")
+      v-icon remove
+    v-toolbar-title(
       :style="$vuetify.breakpoint.smAndUp ? 'width: 300px; min-width: 250px' : 'min-width: 72px'"
       class="ml-0 pl-3"
       v-text="title"
-    >
-    </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-      <v-icon>menu</v-icon>
-    </v-btn>
-  </v-toolbar>
+    )
+    v-spacer
+    | _menu.pug
+    v-btn(icon @click.stop="rightDrawer = !rightDrawer")
+      v-icon menu
 </template>
 
 <script>
@@ -40,4 +35,3 @@ export default {
   })
 }
 </script>
-
