@@ -48,8 +48,8 @@ export default {
       }
     ],
     drawer: true,
-    clipped: false,
-    minified: true
+    clipped: true,
+    minified: false
   })
 }
 </script>
