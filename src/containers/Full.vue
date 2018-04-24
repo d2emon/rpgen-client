@@ -27,4 +27,8 @@ export default {
 
 <style lang="scss">
   @import './scss/_theme.scss';
+
+  main {
+    height: 100vh;
+  }
 </style>
