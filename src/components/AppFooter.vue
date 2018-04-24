@@ -9,7 +9,7 @@
       wrap
       justify-center
     )
-      v-btn(flat to="/home/homepage") Home
+      v-btn(flat to="/home") Home
       v-btn(flat to="/auth/logout" v-if="authenticated") Logout
       v-btn(flat to="/auth/register" v-if="!authenticated") Register
       v-btn(flat to="/auth/login" v-if="!authenticated") Login

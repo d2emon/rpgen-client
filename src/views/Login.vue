@@ -1,0 +1,25 @@
+<template lang="pug">
+  v-layout
+    v-flex(xs12)
+      | {% import "bootstrap/utils.html" as utils %}
+      | {% import "bootstrap/wtf.html" as wtf %}
+      .content-section
+        br
+        | {{ utils.flashed_messages() }}
+        br
+        .center
+          h1 Login to your account
+          br
+          | {{ wtf.quick_form(form) }}
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      title: 'RPG-Helper'
+    }
+  },
+  name: 'login'
+}
+</script>

@@ -17,12 +17,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/hello',
+      redirect: '/home',
       name: 'Home',
       component: Full,
       children: [
         {
-          path: '/hello',
+          path: '/home',
           name: 'HelloWorld',
           component: HelloWorld
         },
@@ -40,6 +40,19 @@ export default new Router({
           path: '/character',
           name: 'CharGen',
           component: CharGen
+        }
+      ]
+    },
+    {
+      path: '/auth',
+      redirect: '/auth/',
+      name: 'Auth',
+      component: Full,
+      children: [
+        {
+          path: '/',
+          name: 'Login',
+          component: HelloWorld
         }
       ]
     }

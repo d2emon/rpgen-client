@@ -34,7 +34,7 @@
       v-btn(flat to="/auth/logout") Logout
       v-btn(flat) <i class="fa fa-user"></i> Hi, {{ username }}!
     template(v-else)
-      v-btn(flat to="/home/index") Home
+      v-btn(flat to="/home") Home
       v-btn(flat to="/auth/register") Register
       v-btn(flat to="/auth/login") Login
 </template>
