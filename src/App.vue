@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-view
+router-view
 </template>
 
 <script>
@@ -22,4 +22,10 @@ export default {
   /* @import '~simple-line-icons/css/simple-line-icons.css'; */
   /* Import Bootstrap Vue Styles */
   /* @import '~bootstrap-vue/dist/bootstrap-vue.css'; */
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
 </style>

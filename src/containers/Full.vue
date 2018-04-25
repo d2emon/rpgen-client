@@ -1,6 +1,6 @@
 <template lang="pug">
   v-app
-    nav-sidebar
+    // nav-sidebar
     app-header
     .app-body
       v-content
