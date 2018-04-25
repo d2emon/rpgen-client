@@ -21,40 +21,38 @@ header
     v-spacer
 
     template(v-if="authenticated")
-      v-btn(flat to="/user.after_login") Dashboard
-      v-btn(flat to="/rpg/index") RPG
-      v-menu(
-        open-on-hover
-        offset-y
-      )
-        v-btn(flat slot="activator") Systems <v-icon>arrow_drop_down</v-icon>
-        v-list
-          v-list-tile(to="/pathfinder")
-            v-list-tile-title Pathfinder
-          v-list-tile(to="/gurps")
-            v-list-tile-title GURPS
-          v-list-tile(to="/tnt")
-            v-list-tile-title Tunels & Trolls
-      v-btn(flat to="/world/world_list") Worlds
-      v-btn(flat v-if="admin") Admin <span class="caret"></span>
-      v-menu(
-        open-on-hover
-        offset-y
-      )
-        v-btn(flat slot="activator") Admin <v-icon>arrow_drop_down</v-icon>
-        v-list
-          v-list-tile(to="/admin/departments")
-            v-list-tile-title Departments
-          v-list-tile(to="/admin/roles")
-            v-list-tile-title Roles
-          v-list-tile(to="/admin/employees")
-            v-list-tile-title Employees
-      v-btn(flat to="/auth/logout") Logout
+      template(v-for="(link, id) in userLinks")
+        v-menu(
+          v-if="link.items"
+          open-on-hover
+          offset-y
+          :key="id"
+        )
+          v-btn(flat small slot="activator") {{link.title}} <v-icon>arrow_drop_down</v-icon>
+          v-list
+            v-list-tile(
+              v-for="(item, itemId) in link.items"
+              :key="itemId"
+              :to="item.to"
+            )
+              v-list-tile-title {{ item.title }}
+        v-btn(
+          v-else
+          flat
+          small
+          :key="id"
+          :to="link.to"
+          v-text="link.title"
+        )
       v-btn(flat) <v-icon>person</v-icon> Hi, {{ username }}!
-    template(v-else)
-      v-btn(flat depressed small to="/home") Home
-      v-btn(flat depressed small to="/auth/register") Register
-      v-btn(flat depressed small to="/auth/login") Login
+    template(v-else v-for="(link, id) in guestLinks")
+      v-btn(
+        flat
+        small
+        :key="id"
+        :to="link.to"
+        v-text="link.title"
+      )
 </template>
 
 <script>
@@ -64,10 +62,33 @@ export default {
     authenticated: false,
     username: 'Username',
 
-    links: [
-      { title: 'Home', to: '/home'},
-      { title: 'Register', to: '/auth/register'},
-      { title: 'Login', to: '/auth/login'}
+    userLinks: [
+      { title: 'Dashboard', to: '/user.after_login' },
+      { title: 'RPG', to: '/rpg' },
+      {
+        title: 'Systems',
+        items: [
+          { title: 'Pathfinder', to: '/pathfinder' },
+          { title: 'GURPS', to: '/gurps' },
+          { title: 'Tunels & Trolls', to: '/tnt' }
+        ]
+      },
+      { title: 'Worlds', to: '/worlds' },
+      {
+        admin: true,
+        title: 'Admin',
+        items: [
+          { title: 'Departments', to: '/admin/departments' },
+          { title: 'Roles', to: '/admin/roles' },
+          { title: 'Employees', to: '/admin/employees' }
+        ]
+      },
+      { title: 'Logout', to: '/auth/logout' },
+    ],
+    guestLinks: [
+      { title: 'Home', to: '/home' },
+      { title: 'Register', to: '/auth/register' },
+      { title: 'Login', to: '/auth/login' }
     ],
 
     clipped: true,
