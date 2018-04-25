@@ -3,13 +3,14 @@ import Router from 'vue-router'
 
 // Containers
 import Full from '@/containers/Full'
-// import Empty from '@/containers/Empty'
+import Simple from '@/containers/Simple'
 
 // Views
 import HelloWorld from '@/views/HelloWorld'
 import Worlds from '@/views/Worlds'
 import Aliens from '@/views/Aliens'
 import CharGen from '@/views/CharGen'
+import Login from '@/views/Login'
 
 Vue.use(Router)
 
@@ -45,14 +46,14 @@ export default new Router({
     },
     {
       path: '/auth',
-      redirect: '/auth/',
+      redirect: '/auth/login',
       name: 'Auth',
-      component: Full,
+      component: Simple,
       children: [
         {
-          path: '/',
+          path: 'login',
           name: 'Login',
-          component: HelloWorld
+          component: Login
         }
       ]
     }

@@ -83,7 +83,7 @@ export default {
           { title: 'Employees', to: '/admin/employees' }
         ]
       },
-      { title: 'Logout', to: '/auth/logout' },
+      { title: 'Logout', to: '/auth/logout' }
     ],
     guestLinks: [
       { title: 'Home', to: '/home' },
