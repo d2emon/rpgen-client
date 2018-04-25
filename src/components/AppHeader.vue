@@ -104,12 +104,4 @@ export default {
 header {
   font-size: 14px;
 }
-.theme--light .btn {
-  /* font-size: 14px; */
-  text-transform: none;
-  color: $links;
-}
-.theme--light .btn:hover {
-  color: $linksHover;
-}
 </style>

@@ -59,16 +59,3 @@ export default {
   name: 'login'
 }
 </script>
-
-<style scoped lang="scss">
-@import "./scss/_colors.scss";
-
-.theme--light .btn {
-  /* font-size: 14px; */
-  text-transform: none;
-  color: $links;
-}
-.theme--light .btn:hover {
-  color: $linksHover;
-}
-</style>
