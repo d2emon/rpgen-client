@@ -10,7 +10,9 @@ import HelloWorld from '@/views/HelloWorld'
 import Worlds from '@/views/Worlds'
 import Aliens from '@/views/Aliens'
 import CharGen from '@/views/CharGen'
+
 import Login from '@/views/Login'
+import Register from '@/views/Register'
 
 Vue.use(Router)
 
@@ -54,6 +56,11 @@ export default new Router({
           path: 'login',
           name: 'Login',
           component: Login
+        },
+        {
+          path: 'register',
+          name: 'Register',
+          component: Register
         }
       ]
     }
