@@ -1,10 +1,10 @@
 <template lang="pug">
   v-app
-    // nav-sidebar
+    nav-sidebar
     app-header
     .app-body
       v-content
-        v-container(fluid, fill-height, class="pa-0")
+        v-container(fluid fill-height py-0 px-5)
           // confirm-del
           // messages
 
